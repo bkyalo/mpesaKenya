@@ -26,6 +26,7 @@ namespace paygw_mpesakenya;
 
 defined('MOODLE_INTERNAL') || die();
 
+require_once($CFG->dirroot . '/payment/classes/gateway.php');
 require_once($CFG->dirroot . '/payment/gateway/mpesakenya/lib.php');
 
 /**
@@ -35,16 +36,15 @@ require_once($CFG->dirroot . '/payment/gateway/mpesakenya/lib.php');
  * @copyright  2025 Your Name <your@email.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class gateway implements \core_payment\local\gateway\gateway_interface {
+class gateway extends \core_payment\gateway {
     /**
      * Configuration form for the gateway instance.
      *
      * @param \core_payment\form\account_gateway $form The form to add elements to
-     * @param \stdClass $config The gateway configuration
-     * @param string $supports The features supported by this gateway
      */
-    public static function add_configuration_to_gateway(\core_payment\form\account_gateway $form, \stdClass $config, string $supports): void {
+    public static function add_configuration_to_gateway(\core_payment\form\account_gateway $form): void {
         $mform = $form->get_mform();
+        $config = $form->get_config();
 
         // Add consumer key field
         $mform->addElement('text', 'consumerkey', get_string('consumerkey', 'paygw_mpesakenya'));
@@ -106,16 +106,15 @@ class gateway implements \core_payment\local\gateway\gateway_interface {
      * @param \stdClass $data
      * @param array $files
      * @param array $errors
-     * @return void
      */
-    public static function validate_gateway_form(\core_payment\form\account_gateway $form, \stdClass $data, array &$errors): void {
+    public static function validate_gateway_form(\core_payment\form\account_gateway $form, \stdClass $data, array $files, array &$errors): void {
         // Add any validation logic here if needed
     }
 
     /**
-     * Returns the list of payment areas that this gateway supports.
+     * Returns the list of currencies supported by this gateway.
      *
-     * @return array List of payment area names
+     * @return string[] Array of currency codes in ISO 4217 format
      */
     public static function get_supported_currencies(): array {
         return ['KES'];
