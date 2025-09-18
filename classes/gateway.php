@@ -37,14 +37,21 @@ require_once($CFG->dirroot . '/payment/gateway/mpesakenya/lib.php');
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class gateway extends \core_payment\gateway {
+    use \paygw_mpesakenya\traits\debug_trait;
     /**
      * Configuration form for the gateway instance.
      *
      * @param \core_payment\form\account_gateway $form The form to add elements to
      */
     public static function add_configuration_to_gateway(\core_payment\form\account_gateway $form): void {
+        global $CFG;
+        
+        self::debug('Starting configuration form setup', null, __METHOD__);
+        
         $mform = $form->get_mform();
         $config = $form->get_config();
+        
+        self::debug('Current config', $config, __METHOD__);
 
         // Add consumer key field
         $mform->addElement('text', 'consumerkey', get_string('consumerkey', 'paygw_mpesakenya'));
@@ -108,8 +115,20 @@ class gateway extends \core_payment\gateway {
      * @param array $errors
      */
     public static function validate_gateway_form(\core_payment\form\account_gateway $form, \stdClass $data, array $files, array &$errors): void {
-        // Add any validation logic here if needed
-    }
+        self::debug('Validating gateway form data', $data, __METHOD__);
+        
+        // Example validation - ensure required fields are present
+        $requiredfields = ['consumerkey', 'consumersecret', 'environment', 'shortcode'];
+        foreach ($requiredfields as $field) {
+            if (empty($data->$field)) {
+                $errors[$field] = get_string('required');
+                self::debug("Missing required field: $field", null, __METHOD__);
+            }
+        }
+        
+        if (!empty($errors)) {
+            self::debug('Form validation errors', $errors, __METHOD__);
+        }
 
     /**
      * Returns the list of currencies supported by this gateway.
@@ -117,6 +136,8 @@ class gateway extends \core_payment\gateway {
      * @return string[] Array of currency codes in ISO 4217 format
      */
     public static function get_supported_currencies(): array {
-        return ['KES'];
+        $currencies = ['KES'];
+        self::debug('Returning supported currencies', $currencies, __METHOD__);
+        return $currencies;
     }
 }
