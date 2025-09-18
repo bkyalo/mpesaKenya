@@ -1,0 +1,185 @@
+/**
+ * M-Pesa Dashboard Styles
+ */
+
+.mpesa-dashboard {
+    margin: 20px 0;
+}
+
+.status-overview {
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 4px;
+    color: #fff;
+    text-align: center;
+}
+
+.status-overview.alert-success {
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+
+.status-overview.alert-warning {
+    background-color: #f0ad4e;
+    border-color: #eea236;
+}
+
+.status-overview.alert-danger {
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+
+.status-overview h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.check-summary {
+    margin-bottom: 30px;
+}
+
+.check-item {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-left: 4px solid #5cb85c;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    min-height: 100px;
+}
+
+.check-item.check-warning {
+    border-left-color: #f0ad4e;
+}
+
+.check-item.check-error {
+    border-left-color: #d9534f;
+}
+
+.check-item .fa {
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+.check-item.check-ok .fa {
+    color: #5cb85c;
+}
+
+.check-item.check-warning .fa {
+    color: #f0ad4e;
+}
+
+.check-item.check-error .fa {
+    color: #d9534f;
+}
+
+.check-name {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.check-status {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.check-detail {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+    font-size: 13px;
+    color: #666;
+}
+
+/* Panel styles */
+.panel {
+    margin-bottom: 10px;
+    border: none;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.panel-heading {
+    padding: 0;
+    border: none;
+}
+
+.panel-title a {
+    display: block;
+    padding: 15px;
+    color: #333;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.panel-title a:hover, .panel-title a:focus {
+    text-decoration: none;
+    color: #23527c;
+}
+
+.panel-title .fa {
+    margin-right: 8px;
+    width: 16px;
+    text-align: center;
+}
+
+.panel-body {
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-top: 1px solid #eee;
+}
+
+/* Status colors */
+.check-ok .panel-title a {
+    color: #5cb85c;
+}
+
+.check-warning .panel-title a {
+    color: #f0ad4e;
+}
+
+.check-error .panel-title a {
+    color: #d9534f;
+}
+
+/* Action buttons */
+.action-buttons {
+    margin: 30px 0;
+    text-align: center;
+}
+
+.action-buttons .btn {
+    margin: 0 5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .check-item {
+        margin-bottom: 15px;
+    }
+    
+    .panel-title a {
+        padding: 10px 15px;
+    }
+}
+
+/* JSON pretty printing */
+pre {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    max-height: 300px;
+    overflow: auto;
+}
+
+/* Loading spinner */
+.loading {
+    text-align: center;
+    padding: 20px;
+}
+
+.loading .fa-spin {
+    font-size: 30px;
+    color: #337ab7;
+}

@@ -1,0 +1,89 @@
+<div class="paygw-mpesa-receipt text-center py-4">
+    <div class="receipt-icon mb-4">
+        <div class="icon-circle {{status}}">
+            <i class="fa {{#success}}fa-check-circle{{/success}}{{^success}}fa-times-circle{{/success}}"></i>
+        </div>
+    </div>
+    
+    <h3 class="mb-3">
+        {{#success}}
+            {{#str}} payment_successful, paygw_mpesakenya {{/str}}
+        {{/success}}
+        {{^success}}
+            {{#str}} payment_failed, paygw_mpesakenya {{/str}}
+        {{/success}}
+    </h3>
+    
+    {{#message}}
+    <div class="alert {{#success}}alert-success{{/success}}{{^success}}alert-danger{{/success}} mb-4">
+        {{message}}
+    </div>
+    {{/message}}
+    
+    <div class="receipt-details text-left
+    <div class="card mb-4">
+        <div class="card-body">
+            <div class="row mb-3">
+                <div class="col-6">
+                    <small class="text-muted d-block">{{#str}} amount, paygw_mpesakenya {{/str}}</small>
+                    <strong>{{displaycost}}</strong>
+                </div>
+                <div class="col-6 text-right">
+                    <small class="text-muted d-block">{{#str}} date, paygw_mpesakenya {{/str}}</small>
+                    <strong>{{date}}</strong>
+                </div>
+            </div>
+            
+            {{#mpesareceipt}}
+            <div class="row mb-3">
+                <div class="col-12">
+                    <small class="text-muted d-block">{{#str}} receipt_number, paygw_mpesakenya {{/str}}</small>
+                    <strong>{{mpesareceipt}}</strong>
+                </div>
+            </div>
+            {{/mpesareceipt}}
+            
+            {{#transactionid}}
+            <div class="row">
+                <div class="col-12">
+                    <small class="text-muted d-block">{{#str}} transaction_reference, paygw_mpesakenya {{/str}}</small>
+                    <small class="text-monospace">{{transactionid}}</small>
+                </div>
+            </div>
+            {{/transactionid}}
+        </div>
+    </div>
+    
+    <div class="receipt-actions mt-4">
+        {{#success}}
+        <a href="{{continueurl}}" class="btn btn-primary">
+            <i class="fa fa-check mr-2"></i>
+            {{#str}} continue, paygw_mpesakenya {{/str}}
+        </a>
+        {{/success}}
+        {{^success}}
+        <button id="btn-try-again" class="btn btn-primary">
+            <i class="fa fa-redo mr-2"></i>
+            {{#str}} try_again, paygw_mpesakenya {{/str}}
+        </button>
+        {{/success}}
+        
+        <div class="mt-3">
+            <a href="{{printurl}}" target="_blank" class="btn btn-outline-secondary btn-sm">
+                <i class="fa fa-print mr-1"></i>
+                {{#str}} print_receipt, paygw_mpesakenya {{/str}}
+            </a>
+            <a href="{{emailurl}}" class="btn btn-outline-secondary btn-sm ml-2">
+                <i class="fa fa-envelope mr-1"></i>
+                {{#str}} email_receipt, paygw_mpesakenya {{/str}}
+            </a>
+        </div>
+    </div>
+    
+    {{#testmode}}
+    <div class="alert alert-warning mt-4">
+        <i class="fa fa-exclamation-triangle"></i>
+        {{#str}} test_mode_warning, paygw_mpesakenya {{/str}}
+    </div>
+    {{/testmode}}
+</div>

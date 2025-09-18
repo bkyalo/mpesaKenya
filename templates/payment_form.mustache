@@ -1,0 +1,49 @@
+<div class="paygw-mpesa-payment-form">
+    <div class="alert alert-info">
+        {{#str}} payment_instructions, paygw_mpesakenya {{/str}}
+    </div>
+    
+    <form id="mpesa-payment-form">
+        <div class="form-group">
+            <label for="phone-number">{{#str}} phone_number, paygw_mpesakenya {{/str}}</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">+254</span>
+                </div>
+                <input type="tel" class="form-control" id="phone-number" 
+                       placeholder="7XXXXXXXX" pattern="[0-9]{9}" 
+                       title="{{#str}} invalid_phone, paygw_mpesakenya {{/str}}" required>
+            </div>
+            <small class="form-text text-muted">
+                {{#str}} phone_number_help, paygw_mpesakenya {{/str}}
+            </small>
+        </div>
+        
+        <div class="payment-summary">
+            <h5>{{#str}} payment_summary, paygw_mpesakenya {{/str}}</h5>
+            <table class="table table-sm">
+                <tr>
+                    <th>{{#str}} amount, paygw_mpesakenya {{/str}}:</th>
+                    <td class="text-right">{{displaycost}}</td>
+                </tr>
+                <tr>
+                    <th>{{#str}} payment_method, paygw_mpesakenya {{/str}}:</th>
+                    <td class="text-right">M-Pesa</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="form-actions mt-4">
+            <button type="submit" class="btn btn-primary btn-block" id="btn-pay-now">
+                <i class="fa fa-mobile-alt mr-2"></i>
+                {{#str}} pay_with_mpesa, paygw_mpesakenya {{/str}}
+            </button>
+            {{#testmode}}
+            <div class="alert alert-warning mt-3 mb-0">
+                <i class="fa fa-exclamation-triangle"></i>
+                {{#str}} test_mode_warning, paygw_mpesakenya {{/str}}
+            </div>
+            {{/testmode}}
+        </div>
+    </form>
+</div>

@@ -1,0 +1,243 @@
+/**
+ * M-Pesa Kenya payment gateway styles
+ */
+
+.paygw-mpesa-payment-form,
+.paygw-mpesa-processing,
+.paygw-mpesa-receipt {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Payment Form */
+.paygw-mpesa-payment-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.paygw-mpesa-payment-form .input-group-text {
+    background-color: #f8f9fa;
+    color: #6c757d;
+}
+
+.payment-summary {
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    padding: 15px;
+    margin: 20px 0;
+}
+
+.payment-summary h5 {
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+/* Processing Screen */
+.paygw-mpesa-processing .spinner-border {
+    width: 3rem;
+    height: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.payment-details .card {
+    border: 1px solid #e9ecef;
+    box-shadow: none;
+}
+
+#countdown-timer {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Receipt Screen */
+.receipt-icon .icon-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 40px;
+}
+
+.receipt-icon .icon-circle.success {
+    color: #28a745;
+    background-color: rgba(40, 167, 69, 0.1);
+}
+
+.receipt-icon .icon-circle.error {
+    color: #dc3545;
+    background-color: rgba(220, 53, 69, 0.1);
+}
+
+.receipt-details .card {
+    border: 1px solid #e9ecef;
+    margin-bottom: 20px;
+}
+
+/* Common Elements */
+.btn-pay-now {
+    padding: 12px 24px;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.alert {
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.alert-warning {
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+    color: #856404;
+}
+
+.alert-info {
+    background-color: #e7f5ff;
+    border-color: #d0ebff;
+    color: #0c63e4;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .paygw-mpesa-payment-form,
+    .paygw-mpesa-processing,
+    .paygw-mpesa-receipt {
+        padding: 15px;
+    }
+    
+    .receipt-actions .btn {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+/* Loading spinner */
+.loading-spinner {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    margin: 1rem auto;
+    border: 0.3rem solid #f3f3f3;
+    border-top: 0.3rem solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Payment status */
+#payment-status {
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+}
+
+#payment-status p {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+}
+
+.paygw_mpesakenya_form .form-group {
+    margin-bottom: 15px;
+}
+
+.paygw_mpesakenya_form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.paygw_mpesakenya_form input[type="text"],
+.paygw_mpesakenya_form input[type="tel"] {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    color: white;
+    text-decoration: none;
+}
+
+.btn-primary:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .paygw_mpesakenya_container {
+        padding: 10px;
+    }
+    
+    .paygw_mpesakenya_form input[type="text"],
+    .paygw_mpesakenya_form input[type="tel"] {
+        font-size: 14px;
+    }
+}
+
+/* M-Pesa branding colors */
+.alert-success {
+    background-color: #e3f2fd;
+    border-color: #bbdefb;
+    color: #0d47a1;
+}
+
+.alert-info {
+    background-color: #e3f2fd;
+    border-color: #bbdefb;
+    color: #0d47a1;
+}
+
+.alert-warning {
+    background-color: #fff8e1;
+    border-color: #ffecb3;
+    color: #ff6f00;
+}
+
+.alert-danger {
+    background-color: #ffebee;
+    border-color: #ffcdd2;
+    color: #c62828;
+}
+
+/* Loading dots animation */
+@keyframes dot {
+    0% { opacity: 0.2; }
+    20% { opacity: 1; }
+    100% { opacity: 0.2; }
+}
+
+.loading-dots:after {
+    content: ' .';
+    animation: dot 1.4s steps(5, end) infinite;
+}

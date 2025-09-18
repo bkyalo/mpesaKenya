@@ -1,0 +1,51 @@
+<div class="paygw-mpesa-processing text-center py-4">
+    <div class="spinner-border text-primary mb-3" role="status">
+        <span class="sr-only">{{#str}} processing, paygw_mpesakenya {{/str}}...</span>
+    </div>
+    
+    <h4>{{#str}} processing_payment, paygw_mpesakenya {{/str}}</h4>
+    <p class="lead">{{#str}} check_phone_for_prompt, paygw_mpesakenya {{/str}}</p>
+    
+    <div class="payment-details mt-4 text-left">
+        <div class="alert alert-info">
+            <i class="fa fa-info-circle"></i>
+            {{#str}} enter_pin_on_phone, paygw_mpesakenya {{/str}}
+        </div>
+        
+        <div class="card mb-3">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6">
+                        <small class="text-muted d-block">{{#str}} amount, paygw_mpesakenya {{/str}}</small>
+                        <strong>{{displaycost}}</strong>
+                    </div>
+                    <div class="col-6 text-right">
+                        <small class="text-muted d-block">{{#str}} phone_number, paygw_mpesakenya {{/str}}</small>
+                        <strong>+{{phonenumber}}</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="countdown-timer" class="mt-4">
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" 
+                 style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                <span id="countdown">60</span>s
+            </div>
+        </div>
+        <p class="small text-muted mt-2">{{#str}} waiting_for_payment, paygw_mpesakenya {{/str}}</p>
+    </div>
+    
+    <div id="payment-status" class="mt-4" style="display: none;">
+        <div id="status-message" class="alert">
+            <i id="status-icon" class="mr-2"></i>
+            <span id="status-text"></span>
+        </div>
+        <button id="btn-try-again" class="btn btn-outline-primary mt-2" style="display: none;">
+            <i class="fa fa-redo mr-2"></i>
+            {{#str}} try_again, paygw_mpesakenya {{/str}}
+        </button>
+    </div>
+</div>

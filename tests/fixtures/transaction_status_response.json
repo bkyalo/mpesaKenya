@@ -1,0 +1,31 @@
+{
+    "ResponseCode": "0",
+    "ResponseDescription": "The service request is processed successfully.",
+    "MerchantRequestID": "21605-295434-4",
+    "CheckoutRequestID": "ws_CO_27072017151044001",
+    "ResultCode": "0",
+    "ResultDesc": "The service request is processed successfully.",
+    "CallbackMetadata": {
+        "Item": [
+            {
+                "Name": "Amount",
+                "Value": 100
+            },
+            {
+                "Name": "MpesaReceiptNumber",
+                "Value": "LGR7GIA0R3"
+            },
+            {
+                "Name": "Balance"
+            },
+            {
+                "Name": "TransactionDate",
+                "Value": 20170727154800
+            },
+            {
+                "Name": "PhoneNumber",
+                "Value": 254708374149
+            }
+        ]
+    }
+}

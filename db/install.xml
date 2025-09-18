@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="payment/gateway/mpesakenya/db" VERSION="2024091800" COMMENT="XMLDB file for M-Pesa Kenya payment gateway"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="paygw_mpesakenya_transactions" COMMENT="Stores M-Pesa payment transactions">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true"/>
+        <FIELD NAME="paymentid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" COMMENT="Reference to the payment record"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" COMMENT="User who made the payment"/>
+        <FIELD NAME="component" TYPE="char" LENGTH="100" NOTNULL="true" SEQUENCE="false" COMMENT="Component name"/>
+        <FIELD NAME="paymentarea" TYPE="char" LENGTH="50" NOTNULL="true" SEQUENCE="false" COMMENT="Payment area"/>
+        <FIELD NAME="itemid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" COMMENT="Item ID"/>
+        <FIELD NAME="amount" TYPE="number" LENGTH="12,2" NOTNULL="true" SEQUENCE="false" COMMENT="Payment amount"/>
+        <FIELD NAME="currency" TYPE="char" LENGTH="3" NOTNULL="true" SEQUENCE="false" COMMENT="Currency code"/>
+        <FIELD NAME="phone" TYPE="char" LENGTH="20" NOTNULL="true" SEQUENCE="false" COMMENT="Customer phone number"/>
+        <FIELD NAME="mpesa_receipt" TYPE="char" LENGTH="20" NOTNULL="false" SEQUENCE="false" COMMENT="M-Pesa receipt number"/>
+        <FIELD NAME="transaction_id" TYPE="char" LENGTH="50" NOTNULL="false" SEQUENCE="false" COMMENT="M-Pesa transaction ID"/>
+        <FIELD NAME="checkout_request_id" TYPE="char" LENGTH="100" NOTNULL="false" SEQUENCE="false" COMMENT="M-Pesa checkout request ID"/>
+        <FIELD NAME="status" TYPE="char" LENGTH="20" NOTNULL="true" SEQUENCE="false" COMMENT="Payment status"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" COMMENT="Timestamp when the payment was created"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" DEFAULT="0" COMMENT="Timestamp when the payment was last modified"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="paymentid_uniq" TYPE="unique" FIELDS="paymentid"/>
+        <KEY NAME="userid_fk" TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+
+    <TABLE NAME="paygw_mpesakenya_logs" COMMENT="Logs M-Pesa API requests and responses">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true"/>
+        <FIELD NAME="transactionid" TYPE="char" LENGTH="50" NOTNULL="false" SEQUENCE="false" COMMENT="M-Pesa transaction ID"/>
+        <FIELD NAME="checkout_request_id" TYPE="char" LENGTH="100" NOTNULL="false" SEQUENCE="false" COMMENT="M-Pesa checkout request ID"/>
+        <FIELD NAME="request" TYPE="text" NOTNULL="true" SEQUENCE="false" COMMENT="API request data"/>
+        <FIELD NAME="response" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="API response data"/>
+        <FIELD NAME="status" TYPE="char" LENGTH="20" NOTNULL="true" SEQUENCE="false" COMMENT="Request status"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" COMMENT="Timestamp when the log was created"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="transactionid_idx" TYPE="index" FIELDS="transactionid"/>
+        <KEY NAME="checkout_request_id_idx" TYPE="index" FIELDS="checkout_request_id"/>
+      </KEYS>
+    </TABLE>
+  </TABLES>
+</XMLDB>
