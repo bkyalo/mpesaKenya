@@ -24,8 +24,9 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->component = 'paygw_mpesakenya';
-$plugin->version = 2024091800;
-$plugin->requires = 2022112800; // Moodle 4.1+
+$plugin->component = 'paygw_mpesakenya'; // Must match the plugin's frankenstyle name
+$plugin->version = 2024091800; // YYYYMMDDXX
+$plugin->requires = 2024052000; // Moodle 4.5.0 (2024-05-20)
 $plugin->maturity = MATURITY_STABLE;
+$plugin->release = '1.0.0';
 $plugin->release = '1.0.0';
